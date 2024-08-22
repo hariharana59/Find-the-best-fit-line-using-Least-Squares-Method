@@ -1,32 +1,84 @@
-# Implementation of Univariate Linear Regression
+# EXP 1 - Implementation of Univariate Linear Regression
+
+```
+Program to implement univariate Linear Regression to
+fit a straight line using least squares.
+Developed by: Hariharan A
+RegisterNumber: 212223110013
+```
+
 ## AIM:
 To implement univariate Linear Regression to fit a straight line using least squares.
+
 
 ## Equipments Required:
 1. Hardware – PCs
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-1. Get the independent variable X and dependent variable Y.
-2. Calculate the mean of the X -values and the mean of the Y -values.
-3. Find the slope m of the line of best fit using the formula. 
+step 1 : Start
+
+
+step 2 : Get the independent variable X and dependent variable Y.
+
+
+step 3 : Calculate the mean of the X -values and the mean of the Y -values.
+
+
+step 4 : Find the slope m of the line of best fit using the formula. 
+
+
 <img width="231" alt="image" src="https://user-images.githubusercontent.com/93026020/192078527-b3b5ee3e-992f-46c4-865b-3b7ce4ac54ad.png">
-4. Compute the y -intercept of the line by using the formula:
+
+
+step 5 : Compute the y -intercept of the line by using the formula:
+
 <img width="148" alt="image" src="https://user-images.githubusercontent.com/93026020/192078545-79d70b90-7e9d-4b85-9f8b-9d7548a4c5a4.png">
-5. Use the slope m and the y -intercept to form the equation of the line.
-6. Obtain the straight line equation Y=mX+b and plot the scatterplot.
+step 6 : Use the slope m and the y -intercept to form the equation of the line.
+
+
+step 7 : Obtain the straight line equation Y=mX+b and plot the scatterplot.
+
+
+step 8 : Stop
+
 
 ## Program:
+
 ```
-/*
-Program to implement univariate Linear Regression to fit a straight line using least squares.
-Developed by: 
-RegisterNumber:  
-*/
+import numpy as np
+import matplotlib.pyplot as plt
+X =  np.array(eval(input()))
+Y = np.array(eval(input()))
+#mean
+X_mean = np.mean(X)
+Y_mean = np.mean(Y)
+num=0 #for slop
+denom=0 #for slop
+#to find sum of (xi-x') & (yi-y') & (xi-x')^2
+for i in range(len(X)):
+    num+=(X[i]-X_mean)*(Y[i]-Y_mean)
+    denom+=(X[i]-X_mean)**2
+m=num/denom #calculate slope
+b=Y_mean - m*X_mean
+print(m,b)
+#line equation
+y_predicted=m*X+b
+print(y_predicted)
+#to plot graph
+plt.scatter(X,Y)
+plt.plot(X,y_predicted,color="red")
+plt.show()
 ```
 
+
 ## Output:
-![best fit line](sam.png)
+![image](https://github.com/user-attachments/assets/d0417524-28c2-4abe-9dc8-2538b9d67810)
+![image](https://github.com/user-attachments/assets/774ac36b-b9c0-48e4-b8e1-effb4562f3f7)
+![image](https://github.com/user-attachments/assets/8b6dea45-f4f0-4689-975d-8de18c3beb93)
+
+
+
 
 
 ## Result:
